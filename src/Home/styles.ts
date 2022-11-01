@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
     padding: 5
   },
   camera: {
-    zIndex:999,
+    opacity:1,
     width: Dimensions.get("screen").width - 58,
     height: 300,
   },

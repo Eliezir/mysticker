@@ -19,9 +19,10 @@ export function Home() {
 
 const cameraRef = useRef<Camera>(null);
 const screenShotRef = useRef(null);
+const options = {isImageMirror:false}
 
 async function handleTakePicture(){
-  const photo = await cameraRef.current.takePictureAsync();1
+  const photo = await cameraRef.current.takePictureAsync(options);
   setPhotoURI(photo.uri)
 }
 
@@ -53,7 +54,7 @@ Camera.requestCameraPermissionsAsync().then(res => setHasCameraPermission(res.gr
             />:
             <Image source={{ uri: photo ? photo : 'https://preview.redd.it/zcgs03lgoy351.png?width=288&format=png&auto=webp&s=d9bf4b46713d7fdbf11b82a8e364ceee79724a9c' }} 
             style={styles.camera} 
-            onLoad={shareScreenShot}
+            onLoad={()=> setTimeout(shareScreenShot,300)}
             />
 }
             <View style={styles.player}>
